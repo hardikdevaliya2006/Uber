@@ -31,4 +31,6 @@ userRoutes.post(
 
 userRoutes.get("/profile", middleware.authUser, userConroller.getUserProfile);
 
+userRoutes.get("/logout", middleware.authUser, userConroller.logoutUser)
+
 export default userRoutes;
