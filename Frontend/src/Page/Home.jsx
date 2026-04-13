@@ -19,7 +19,7 @@ const Home = () => {
         </h2>
         <div className="bg-[url(/public/uber_map.png)] h-full bg-cover"></div>
         <div
-          className={`absolute overflow-hidden bottom-0 w-full bg-white p-7 flex flex-col gap-4 transition-all duration-500 ease-in-out ${isExpanded ? "h-full rounded-none border-0 border-transparent" : "h-[22%] border-gray-200 border rounded-t-3xl"}`}
+          className={`absolute overflow-hidden bottom-0 w-full bg-white p-7 flex flex-col gap-4 transition-all duration-500 ease-in-out ${isExpanded ? "h-full rounded-none border-0 border-transparent" : "h-[25%] border-gray-200 border rounded-t-3xl"}`}
         >
           <div className="flex items-center justify-between">
             <h2 className={"font-semibold text-2xl"}>Find a Trip</h2>

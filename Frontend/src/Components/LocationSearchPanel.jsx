@@ -12,7 +12,7 @@ const locations = [
 
 const LocationSearchPanel = ({ setShowVehicles, setIsExpanded }) => {
   return (
-    <div className="pt-2 flex flex-col gap-4 justify-center">
+    <div className="pt-6 flex flex-col gap-4 justify-center">
       {locations.map((loc, index) => {
         return (
           <div
