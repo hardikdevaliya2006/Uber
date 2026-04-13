@@ -20,7 +20,7 @@ const AppRouter = () => {
       <Route path="/login/captain" element={<CaptainLogin />}></Route>
       <Route path="/singup/user" element={<Singup />}></Route>
       <Route path="/singup/captain" element={<CaptainSingup />}></Route>
-      <Route
+      {/* <Route
         path="/user/home"
         element={
           <UserProtectedRoute>
@@ -51,7 +51,11 @@ const AppRouter = () => {
             <CaptainLogout />
           </CaptainProtectedRoute>
         }
-      ></Route>
+      ></Route> */}
+      <Route path="/user/home" element={<Home />}></Route>
+      <Route path="/user/logout" element={<UserLogout />}></Route>
+      <Route path="/captain/home" element={<CaptainHome />}></Route>
+      <Route path="/captain/logout" element={<CaptainLogout />}></Route>
     </Routes>
   );
 };
