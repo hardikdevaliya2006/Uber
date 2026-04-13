@@ -11,6 +11,8 @@ import CaptainHome from "../Page/CaptainHome";
 import CaptainProtectedRoute from "./CaptainProtectedRoute.route";
 import UserProtectedRoute from "./UserProtectedRoute.route";
 import CaptainLogout from "../Page/CaptainLogout";
+import Riding from "../Page/Riding";
+import CaptainRiding from "../Page/CaptainRiding";
 
 const AppRouter = () => {
   return (
@@ -37,6 +39,14 @@ const AppRouter = () => {
         }
       ></Route>
       <Route
+        path="/user/riding"
+        element={
+          <UserProtectedRoute>
+            <Riding />
+          </UserProtectedRoute>
+        }
+      ></Route>
+      <Route
         path="/captain/home"
         element={
           <CaptainProtectedRoute>
@@ -45,15 +55,25 @@ const AppRouter = () => {
         }
       ></Route>
       <Route
-        path="/captain/logout"
+        path="/captain/riding"
         element={
           <CaptainProtectedRoute>
-            <CaptainLogout />
+            <CaptainHome />
           </CaptainProtectedRoute>
         }
-      ></Route> */}
+      ></Route>
+      <Route
+      path="/captain/logout"
+      element={
+        <CaptainProtectedRoute>
+        <CaptainLogout />
+        </CaptainProtectedRoute>
+        }
+        ></Route> */}
       <Route path="/user/home" element={<Home />}></Route>
       <Route path="/user/logout" element={<UserLogout />}></Route>
+      <Route path="/user/riding" element={<Riding />}></Route>
+      <Route path="/captain/riding" element={<CaptainRiding />}></Route>
       <Route path="/captain/home" element={<CaptainHome />}></Route>
       <Route path="/captain/logout" element={<CaptainLogout />}></Route>
     </Routes>
