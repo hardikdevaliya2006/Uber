@@ -20,6 +20,17 @@ The request body should be in JSON format and include the following fields:
 - `email` (string, required): User's email address (must be a valid email).
 - `password` (string, required): User's password (minimum 6 characters).
 
+```json
+{
+  "email": "hardik@gmail.com",
+  "fullName": {
+    "firstName": "Hardik",
+    "lastName": "Devaliya"
+  },
+  "password": "hardik"
+}
+```
+
 ### Example Response
 
 - `user` (object):
@@ -29,6 +40,22 @@ The request body should be in JSON format and include the following fields:
   - `email` (string): User's email address (must be a valid email).
   - `password` (string): User's password (minimum 6 characters).
 - `token` (String): JWT Token
+
+```json
+{
+  "user": {
+    "fullName": {
+      "firstName": "Scott",
+      "lastName": "123"
+    },
+    "email": "scott@gmail.com",
+    "password": "$2b$10$0tnGxUB./qsa.....",
+    "_id": "69d8b08f3ce9b4ae3e7c58f5",
+    "__v": 0
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5c...."
+}
+```
 
 ## `/users/login` Endpoint
 
@@ -51,6 +78,13 @@ The request body should be in JSON format and include the following fields:
 - `email` (string, required): User's email address (must be a valid email).
 - `password` (string, required): User's password (minimum 6 characters).
 
+```json
+{
+  "email": "hardik@gmail.com",
+  "password": "hardik"
+}
+```
+
 ### Example Response
 
 - `user` (object):
@@ -60,6 +94,22 @@ The request body should be in JSON format and include the following fields:
   - `email` (string): User's email address (must be a valid email).
   - `password` (string): User's password (minimum 6 characters).
 - `token` (String): JWT Token
+
+```json
+{
+  "user": {
+    "fullName": {
+      "firstName": "Scott",
+      "lastName": "123"
+    },
+    "_id": "69d8b08f3ce9b4ae3e7c58f5",
+    "email": "hardik@gmail.com",
+    "password": "$2b$10$0tnGZBdxUB./qsa...",
+    "__v": 0
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsIn..."
+}
+```
 
 ## `/users/profile` Endpoint
 
@@ -93,7 +143,6 @@ Logout the current user and blacklist the token provided in cookie or headers
 ### HTTP Method
 
 `GET`
-
 
 ### Authentication
 

@@ -19,7 +19,7 @@ userRoutes.post(
 );
 
 userRoutes.post(
-  "/login",
+  "/login", 
   [
     body("email").isEmail().withMessage("Invalid Email"),
     body("password")

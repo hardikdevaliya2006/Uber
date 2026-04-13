@@ -51,11 +51,16 @@ const loginUser = async (req, res, next) => {
 };
 
 const getUserProfile = async (req, res, next) => {
-  res.status(200).json({ "user": req.user });
+  res.status(200).json({ user: req.user });
 };
 
 const logoutUser = async (req, res, next) => {
-  const token = req.cookies.token || req.headers.authrization?.split(" ")[1];
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ message: "No token provided" });
+  }
+
+  const token = authHeader.split(" ")[1];
   await blackListTokenModel.create({ token });
   res.clearCookie("token");
   res.status(200).json({ message: "Logout User" });
