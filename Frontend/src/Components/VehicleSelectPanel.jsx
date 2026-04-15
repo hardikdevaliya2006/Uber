@@ -3,6 +3,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 const VehicleSelectPanel = ({
+  fareLoading,
+  fare,
   showVehicles,
   setShowVehicles,
   setShowConfirmTrip,
@@ -20,65 +22,72 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
           className="text-2xl cursor-pointer"
         />
       </div>
-      <div className="flex flex-col gap-2 items-start justify-center w-full">
-        <div
-          onClick={() => {
-            (setShowConfirmTrip(true), setShowVehicles(false));
-          }}
-          className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
-        >
-          <img className="h-20" src="/uber_car.jpg" alt="" />
-          <div className="w-full">
-            <div className="flex items-center justify-start">
-              <p className="font-semibold text-xl pr-2">UberGo</p>
-              <FaUserAlt className="text-base"></FaUserAlt>
-              <span className="font-semibold pl-1.5 text-xl">4</span>
-            </div>
-            <p className="font-semibold text-base">2 min away</p>
-            <p className="text-sm">Affordable, compact rides</p>
-          </div>
-          <p className="font-semibold text-xl">₹194.20</p>
+
+      {fareLoading ? (
+        <div className="flex justify-center items-center py-10">
+          <p className="text-lg font-semibold">Calculating fares...</p>
         </div>
-        <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
-          <img className="w-20" src="/uber_moto.png" alt="" />
-          <div className="w-full">
-            <div className="flex items-center justify-start">
-              <p className="font-semibold text-xl pr-2">Moto</p>
-              <FaUserAlt className="text-base"></FaUserAlt>
-              <span className="font-semibold pl-1.5 text-xl">1</span>
+      ) : (
+        <div className="flex flex-col gap-2 items-start justify-center w-full">
+          <div
+            onClick={() => {
+              (setShowConfirmTrip(true), setShowVehicles(false));
+            }}
+            className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
+          >
+            <img className="h-20" src="/uber_car.jpg" alt="" />
+            <div className="w-full">
+              <div className="flex items-center justify-start">
+                <p className="font-semibold text-xl pr-2">UberGo</p>
+                <FaUserAlt className="text-base"></FaUserAlt>
+                <span className="font-semibold pl-1.5 text-xl">4</span>
+              </div>
+              <p className="font-semibold text-base">2 min away</p>
+              <p className="text-sm">Affordable, compact rides</p>
             </div>
-            <p className="font-semibold text-base">3 min away</p>
-            <p className="text-sm">Affordable, Motorcycle rides</p>
+            <p className="font-semibold text-xl">₹{fare?.car ?? "--"}</p>
           </div>
-          <p className="font-semibold text-xl pr-1">₹65</p>
-        </div>
-        <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
-          <img className="w-20" src="/uber_auto.webp" alt="" />
-          <div className="w-full">
-            <div className="flex items-center justify-start">
-              <p className="font-semibold text-xl pr-2">UberAuto</p>
-              <FaUserAlt className="text-base"></FaUserAlt>
-              <span className="font-semibold pl-1.5 text-xl">3</span>
+          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+            <img className="w-20" src="/uber_moto.png" alt="" />
+            <div className="w-full">
+              <div className="flex items-center justify-start">
+                <p className="font-semibold text-xl pr-2">Moto</p>
+                <FaUserAlt className="text-base"></FaUserAlt>
+                <span className="font-semibold pl-1.5 text-xl">1</span>
+              </div>
+              <p className="font-semibold text-base">3 min away</p>
+              <p className="text-sm">Affordable, Motorcycle rides</p>
             </div>
-            <p className="font-semibold text-base">1 min away</p>
-            <p className="text-sm">Affordable, Auto rides</p>
+            <p className="font-semibold text-xl pr-1">₹{fare?.moto ?? "--"}</p>
           </div>
-          <p className="font-semibold text-xl">₹118.86</p>
-        </div>
-        <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
-          <img className="w-20" src="/uber_car_xl.jpg" alt="" />
-          <div className="w-1/2">
-            <div className="flex items-center justify-start">
-              <p className="font-semibold text-xl pr-2">UberXL</p>
-              <FaUserAlt className="text-base"></FaUserAlt>
-              <span className="font-semibold pl-1.5 text-xl">6</span>
+          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+            <img className="w-20" src="/uber_auto.webp" alt="" />
+            <div className="w-full">
+              <div className="flex items-center justify-start">
+                <p className="font-semibold text-xl pr-2">UberAuto</p>
+                <FaUserAlt className="text-base"></FaUserAlt>
+                <span className="font-semibold pl-1.5 text-xl">3</span>
+              </div>
+              <p className="font-semibold text-base">1 min away</p>
+              <p className="text-sm">Affordable, Auto rides</p>
             </div>
-            <p className="font-semibold text-base">4 min away</p>
-            <p className="text-sm">Affordable, Xl Car rides</p>
+            <p className="font-semibold text-xl">₹{fare?.auto ?? "--"}</p>
           </div>
-          <p className="font-semibold text-xl">₹194.20</p>
+          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+            <img className="w-20" src="/uber_car_xl.jpg" alt="" />
+            <div className="w-full">
+              <div className="flex items-center justify-start">
+                <p className="font-semibold text-xl pr-2">UberXL</p>
+                <FaUserAlt className="text-base"></FaUserAlt>
+                <span className="font-semibold pl-1.5 text-xl">6</span>
+              </div>
+              <p className="font-semibold text-base">4 min away</p>
+              <p className="text-sm">Affordable, Xl Car rides</p>
+            </div>
+            <p className="font-semibold text-xl">₹{fare?.carXL ?? "--"}</p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
