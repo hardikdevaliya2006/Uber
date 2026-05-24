@@ -41,7 +41,6 @@ const CaptainHome = () => {
           setShowConfirmRidePopUp={setShowConfirmRidePopUp}
         ></RidePopUp>
         <ConfirmRidePopUp
-          setShowRidePopUp={setShowRidePopUp}
           showConfirmRidePopUp={showConfirmRidePopUp}
           setShowConfirmRidePopUp={setShowConfirmRidePopUp}
         ></ConfirmRidePopUp>

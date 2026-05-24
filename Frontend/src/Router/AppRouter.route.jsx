@@ -22,54 +22,6 @@ const AppRouter = () => {
       <Route path="/login/captain" element={<CaptainLogin />}></Route>
       <Route path="/singup/user" element={<Singup />}></Route>
       <Route path="/singup/captain" element={<CaptainSingup />}></Route>
-      {/* <Route
-        path="/user/home"
-        element={
-          <UserProtectedRoute>
-            <Home />
-          </UserProtectedRoute>
-        }
-      ></Route>
-      <Route
-        path="/user/logout"
-        element={
-          <UserProtectedRoute>
-            <UserLogout />
-          </UserProtectedRoute>
-        }
-      ></Route>
-      <Route
-        path="/user/riding"
-        element={
-          <UserProtectedRoute>
-            <Riding />
-          </UserProtectedRoute>
-        }
-      ></Route>
-      <Route
-        path="/captain/home"
-        element={
-          <CaptainProtectedRoute>
-            <CaptainHome />
-          </CaptainProtectedRoute>
-        }
-      ></Route>
-      <Route
-        path="/captain/riding"
-        element={
-          <CaptainProtectedRoute>
-            <CaptainHome />
-          </CaptainProtectedRoute>
-        }
-      ></Route>
-      <Route
-      path="/captain/logout"
-      element={
-        <CaptainProtectedRoute>
-        <CaptainLogout />
-        </CaptainProtectedRoute>
-        }
-        ></Route> */}
       <Route path="/user/home" element={<Home />}></Route>
       <Route path="/user/logout" element={<UserLogout />}></Route>
       <Route path="/user/riding" element={<Riding />}></Route>

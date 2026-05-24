@@ -22,7 +22,7 @@ const Start = () => {
             className={
               "bg-black py-2 w-full text-gray-50 text-xl font-semibold rounded-xl"
             }
-          >
+          > 
             <Link to="/login/user">Continue</Link>
           </button>
         </div>

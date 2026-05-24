@@ -7,7 +7,6 @@ import { PiUserBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const ConfirmRidePopUp = ({
-  setShowRidePopUp,
   showConfirmRidePopUp,
   setShowConfirmRidePopUp,
 }) => {

@@ -69,7 +69,6 @@ const getAutoCompleteSuggetions = async (query) => {
   }
 
   try {
-    console.log(query);
     const apiKey = process.env.SERPAPI_MAPS_API;
     const response = await axios.get("https://serpapi.com/search.json", {
       params: {

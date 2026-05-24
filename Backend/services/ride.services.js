@@ -59,7 +59,6 @@ const createRide = async ({ user, pickup, destination, vehicleType }) => {
   }
 
   const fareData = await getFare(pickup, destination);
-  console.log(fareData);
 
   const ride = await RideModel.create({
     user,

@@ -9,7 +9,7 @@ const UserLogout = () => {
   try {
     authApi
       .get("/users/logout", {
-        headers: {
+        headers: { 
           Authorization: `Bearer ${token}`,
         },
       })
