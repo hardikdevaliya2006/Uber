@@ -3,6 +3,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 const VehicleSelectPanel = ({
+  createRide,
   fareLoading,
   fare,
   showVehicles,
@@ -31,7 +32,9 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
         <div className="flex flex-col gap-2 items-start justify-center w-full">
           <div
             onClick={() => {
-              (setShowConfirmTrip(true), setShowVehicles(false));
+              (setShowConfirmTrip(true),
+                setShowVehicles(false),
+                createRide("car"));
             }}
             className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
           >
@@ -47,7 +50,14 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             </div>
             <p className="font-semibold text-xl">₹{fare?.car ?? "--"}</p>
           </div>
-          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+          <div
+            onClick={() => {
+              (setShowConfirmTrip(true),
+                setShowVehicles(false),
+                createRide("moto"));
+            }}
+            className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
+          >
             <img className="w-20" src="/uber_moto.png" alt="" />
             <div className="w-full">
               <div className="flex items-center justify-start">
@@ -60,7 +70,14 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             </div>
             <p className="font-semibold text-xl pr-1">₹{fare?.moto ?? "--"}</p>
           </div>
-          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+          <div
+            onClick={() => {
+              (setShowConfirmTrip(true),
+                setShowVehicles(false),
+                createRide("auto"));
+            }}
+            className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
+          >
             <img className="w-20" src="/uber_auto.webp" alt="" />
             <div className="w-full">
               <div className="flex items-center justify-start">
@@ -73,7 +90,14 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             </div>
             <p className="font-semibold text-xl">₹{fare?.auto ?? "--"}</p>
           </div>
-          <div className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full">
+          <div
+            onClick={() => {
+              (setShowConfirmTrip(true),
+                setShowVehicles(false),
+                createRide("carXL"));
+            }}
+            className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
+          >
             <img className="w-20" src="/uber_car_xl.jpg" alt="" />
             <div className="w-full">
               <div className="flex items-center justify-start">

@@ -7,6 +7,7 @@ import WaitingForDriver from "../Components/WaitingForDriver";
 import mapApi from "../api/mapApi";
 import { debounce } from "../utils/debounce";
 import { useMemo } from "react";
+import authApi from "../api/authApi";
 
 const Home = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -53,17 +54,26 @@ const Home = () => {
       setFareLoading(true);
 
       const response = await mapApi.getFare(pickup, destination);
-      setFare(response.fare); 
+      setFare(response.fare);
       setShowVehicles(true);
-
-      setPickup("");
-      setDestination("");
     } catch (error) {
       console.error("Fare API error:", error);
     } finally {
       setFareLoading(false);
     }
   };
+
+  async function createRide(vehicleType) {
+    const response = await authApi.post("/rides/create", {
+      pickup,
+      destination,
+      vehicleType,
+    });
+
+    setPickup("");
+    setDestination("");
+    console.log(response.data);
+  }
 
   return (
     <main className={"h-screen"}>
@@ -137,6 +147,7 @@ const Home = () => {
         </div>
 
         <VehicleSelectPanel
+          createRide={createRide}
           fareLoading={fareLoading}
           fare={fare}
           showVehicles={showVehicles}
