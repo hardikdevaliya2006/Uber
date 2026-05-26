@@ -70,10 +70,6 @@ const Home = () => {
       destination,
       vehicleType,
     });
-
-    setPickup("");
-    setDestination("");
-    setVehicleType("");
     console.log(response.data);
   }
 
@@ -155,14 +151,21 @@ const Home = () => {
           showVehicles={showVehicles}
           setShowVehicles={setShowVehicles}
           setShowConfirmTrip={setShowConfirmTrip}
-          ></VehicleSelectPanel>
+        ></VehicleSelectPanel>
         <ConfirmTripPanel
           createRide={createRide}
+          pickup={pickup}
+          destination={destination}
+          fare={fare}
+          vehicleType={vehicleType}
           showConfirmTrip={showConfirmTrip}
           setShowConfirmTrip={setShowConfirmTrip}
           setShowWaitingForDriver={setShowWaitingForDriver}
         ></ConfirmTripPanel>
         <WaitingForDriver
+          pickup={pickup}
+          vehicleType={vehicleType}
+          fare={fare}
           setShowWaitingForDriver={setShowWaitingForDriver}
           showWaitingForDriver={showWaitingForDriver}
         ></WaitingForDriver>

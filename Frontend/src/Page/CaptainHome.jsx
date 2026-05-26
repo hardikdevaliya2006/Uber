@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { PiUserBold } from "react-icons/pi";
 import RidePopUp from "../Components/RidePopUp";
 import ConfirmRidePopUp from "../Components/ConfirmRidePopUp";
+import { CaptainDataContext } from "../Context/CaptainContext";
 
 const CaptainHome = () => {
   const [showRidePopUp, setShowRidePopUp] = useState(true);
   const [showConfirmRidePopUp, setShowConfirmRidePopUp] = useState(false);
+
+  const { captain } = useContext(CaptainDataContext);
+  console.log(captain);
 
   return (
     <main className={"h-screen"}>
@@ -25,7 +29,11 @@ const CaptainHome = () => {
                 <div className="bg-gray-200 border border-gray-300 flex items-center justify-center rounded-full h-10 w-10">
                   <PiUserBold className="text-gray-800 text-2xl"></PiUserBold>
                 </div>
-                <p className="text-2xl font-semibold">Suresh</p>
+                <p className="text-2xl font-semibold">
+                  {captain?.fullName?.firstName +
+                    " " +
+                    captain?.fullName?.lastName}
+                </p>
               </div>
               <div className="flex flex-col items-end gap-0.5">
                 <p className="font-semibold text-xl">₹296.50</p>

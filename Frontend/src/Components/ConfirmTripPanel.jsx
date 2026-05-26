@@ -6,6 +6,10 @@ import { BsCash } from "react-icons/bs";
 
 const ConfirmTripPanel = ({
   createRide,
+  pickup,
+  destination,
+  fare,
+  vehicleType,
   showConfirmTrip,
   setShowConfirmTrip,
   setShowWaitingForDriver,
@@ -34,7 +38,7 @@ ${showConfirmTrip ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`
             </div>
             <div>
               <p className="font-semibold text-xl">562/11A</p>
-              <p>Kankariya Talab, Refer Fornt</p>
+              <p>{pickup}</p>
             </div>
           </div>
           <span className="border rounded-full border-gray-200 w-full"></span>
@@ -44,7 +48,7 @@ ${showConfirmTrip ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`
             </div>
             <div>
               <p className="font-semibold text-xl">1254/32C</p>
-              <p>SSIT Krushan Nagar, Nikol</p>
+              <p>{destination}</p>
             </div>
           </div>
           <span className="border rounded-full border-gray-200 w-full"></span>
@@ -53,7 +57,7 @@ ${showConfirmTrip ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`
               <BsCash className="text-2xl"></BsCash>
             </div>
             <div>
-              <p className="font-semibold text-xl">₹65</p>
+              <p className="font-semibold text-xl">₹{fare[vehicleType]}</p>
               <p>Cash</p>
             </div>
           </div>
