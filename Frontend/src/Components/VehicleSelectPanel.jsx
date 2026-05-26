@@ -3,7 +3,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 const VehicleSelectPanel = ({
-  createRide,
+  setVehicleType,
   fareLoading,
   fare,
   showVehicles,
@@ -34,7 +34,7 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             onClick={() => {
               (setShowConfirmTrip(true),
                 setShowVehicles(false),
-                createRide("car"));
+                setVehicleType("car"));
             }}
             className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
           >
@@ -54,7 +54,7 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             onClick={() => {
               (setShowConfirmTrip(true),
                 setShowVehicles(false),
-                createRide("moto"));
+                setVehicleType("moto"));
             }}
             className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
           >
@@ -74,7 +74,7 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             onClick={() => {
               (setShowConfirmTrip(true),
                 setShowVehicles(false),
-                createRide("auto"));
+                setVehicleType("auto"));
             }}
             className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
           >
@@ -94,7 +94,7 @@ ${showVehicles ? "translate-y-0 opacity-100 h-auto" : "translate-y-full opacity-
             onClick={() => {
               (setShowConfirmTrip(true),
                 setShowVehicles(false),
-                createRide("carXL"));
+                setVehicleType("carXL"));
             }}
             className="border active:border-black flex items-center justify-start gap-2 rounded-xl p-2 border-gray-200 w-full"
           >

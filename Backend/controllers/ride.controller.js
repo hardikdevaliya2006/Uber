@@ -3,8 +3,7 @@ import rideServices from "../services/ride.services.js";
 
 const createRide = async (req, res, next) => {
   const error = validationResult(req);
-  console.log(req.body)
-  console.log(req.user._id)
+  console.log(req.body);
   if (!error.isEmpty()) {
     return res.status(400).json({ error: error.array() });
   }

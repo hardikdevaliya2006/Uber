@@ -5,6 +5,7 @@ import { MdCenterFocusStrong } from "react-icons/md";
 import { BsCash } from "react-icons/bs";
 
 const ConfirmTripPanel = ({
+  createRide,
   showConfirmTrip,
   setShowConfirmTrip,
   setShowWaitingForDriver,
@@ -59,7 +60,9 @@ ${showConfirmTrip ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`
         </div>
         <button
           onClick={() => {
-            (setShowWaitingForDriver(true), setShowConfirmTrip(false));
+            (setShowWaitingForDriver(true),
+              setShowConfirmTrip(false),
+              createRide());
           }}
           className="bg-green-700/95 py-2 w-full text-gray-50 text-xl font-semibold rounded-md"
         >

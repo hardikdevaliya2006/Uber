@@ -20,6 +20,7 @@ const Home = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [fare, setFare] = useState({});
   const [fareLoading, setFareLoading] = useState(false);
+  const [vehicleType, setVehicleType] = useState("");
 
   const fetchSuggetions = useMemo(() => {
     return debounce(async (value) => {
@@ -63,7 +64,7 @@ const Home = () => {
     }
   };
 
-  async function createRide(vehicleType) {
+  async function createRide() {
     const response = await authApi.post("/rides/create", {
       pickup,
       destination,
@@ -72,6 +73,7 @@ const Home = () => {
 
     setPickup("");
     setDestination("");
+    setVehicleType("");
     console.log(response.data);
   }
 
@@ -147,14 +149,15 @@ const Home = () => {
         </div>
 
         <VehicleSelectPanel
-          createRide={createRide}
+          setVehicleType={setVehicleType}
           fareLoading={fareLoading}
           fare={fare}
           showVehicles={showVehicles}
           setShowVehicles={setShowVehicles}
           setShowConfirmTrip={setShowConfirmTrip}
-        ></VehicleSelectPanel>
+          ></VehicleSelectPanel>
         <ConfirmTripPanel
+          createRide={createRide}
           showConfirmTrip={showConfirmTrip}
           setShowConfirmTrip={setShowConfirmTrip}
           setShowWaitingForDriver={setShowWaitingForDriver}
