@@ -5,14 +5,17 @@ import "./index.css";
 import App from "./App.jsx";
 import UserContext from "./Context/UserContext.jsx";
 import CaptainContext from "./Context/CaptainContext.jsx";
+import SocketProvider from "./Context/SocketContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <UserContext>
       <CaptainContext>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <SocketProvider> 
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SocketProvider>
       </CaptainContext>
     </UserContext>
   </StrictMode>,

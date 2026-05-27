@@ -9,7 +9,6 @@ const CaptainHome = () => {
   const [showConfirmRidePopUp, setShowConfirmRidePopUp] = useState(false);
 
   const { captain } = useContext(CaptainDataContext);
-  console.log(captain);
 
   return (
     <main className={"h-screen"}>
